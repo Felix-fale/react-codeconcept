@@ -3,7 +3,7 @@ export default function Menu(parms) {
         <div className="menu">
             <ul>
                 <li>Home</li>
-                <li>Add Techno 18m00</li>
+                <li>Add Techno 34:25s</li>
                 <li>All Techno</li>
             </ul>
         </div>
