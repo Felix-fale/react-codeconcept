@@ -24,11 +24,16 @@ export default function TechnoAdd(props) {
   function handleSubmit(evt) {
     evt.preventDefault();
     handleAddTechno(techno);
+    setTechno({
+      technoname: "",
+      technocategory: "",
+      technodescription: "",
+    });
   }
 
   function handleChange(evt) {
     const { name, value } = evt.target;
-    setTechno({...techno, [name]: value })
+    setTechno({ ...techno, [name]: value });
   }
 
   return (
@@ -48,7 +53,12 @@ export default function TechnoAdd(props) {
           <br />
           <label htmlFor="technocategory">Category:</label>
           <br />
-          <select name="technocategory" id="technocategory">
+          <select
+            name="technocategory"
+            id="technocategory"
+            value={techno.technocategory}
+            onChange={(evt) => handleChange(evt)}
+          >
             <option value="">Select a category</option>
             <option value="front">Front</option>
             <option value="back">Back</option>
@@ -65,6 +75,8 @@ export default function TechnoAdd(props) {
             cols="30"
             // @ts-ignore
             rows="10"
+            value={techno.technodescription}
+            onChange={(evt) => handleChange(evt)}
           ></textarea>
           <br />
           <input type="submit" value="add Techno" className="btn" />

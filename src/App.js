@@ -12,6 +12,7 @@ function App() {
 
   function handleAddTechno(techno) {
     console.log("handleAddTechno", techno);
+    setTechnos([...technos, techno])
   }
   return (
     <>
