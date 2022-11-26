@@ -1,16 +1,54 @@
-export default function TechnoAdd() {
+import { useState } from "react";
+
+/**
+ * @param {{ handleAddTechno: any; }} props
+ */
+
+export default function TechnoAdd(props) {
+  const [techno, setTechno] = useState({
+    technoname: "",
+    technocategory: "",
+    technodescription: "",
+  });
+
+  const { handleAddTechno } = props;
+  // const techno = {
+  //   name: "react",
+  //   category: "front",
+  //   description: "react",
+  // };
+
+  /**
+   * @param {import("react").FormEvent<HTMLFormElement>} evt
+   */
+  function handleSubmit(evt) {
+    evt.preventDefault();
+    handleAddTechno(techno);
+  }
+
+  function handleChange(evt) {
+    const { name, value } = evt.target;
+    setTechno({...techno, [name]: value })
+  }
+
   return (
     <div className="techno-add">
       <h1>Add a Techno</h1>
       <div>
-        <form action="">
-          <label htmlFor="techno-name">Name:</label>
+        <form onSubmit={(evt) => handleSubmit(evt)}>
+          <label htmlFor="technoname">Name:</label>
           <br />
-          <input type="text" name="techno-name" id="techno-name" />
+          <input
+            type="text"
+            name="technoname"
+            id="technoname"
+            value={techno.technoname}
+            onChange={(evt) => handleChange(evt)}
+          />
           <br />
-          <label htmlFor="techno-category">Category:</label>
+          <label htmlFor="technocategory">Category:</label>
           <br />
-          <select name="techno-category" id="techno-category">
+          <select name="technocategory" id="technocategory">
             <option value="">Select a category</option>
             <option value="front">Front</option>
             <option value="back">Back</option>
@@ -18,18 +56,18 @@ export default function TechnoAdd() {
             <option value="other">Other</option>
           </select>
           <br />
-          <label htmlFor="techno-description">Description:</label>
+          <label htmlFor="technodescription">Description:</label>
           <br />
           <textarea
-            name="techno-description"
-            id="techno-description"
+            name="technodescription"
+            id="technodescription"
             // @ts-ignore
             cols="30"
             // @ts-ignore
             rows="10"
           ></textarea>
           <br />
-          <input type="submit" value="add Techno" />
+          <input type="submit" value="add Techno" className="btn" />
         </form>
       </div>
     </div>
