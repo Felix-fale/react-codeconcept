@@ -1,4 +1,4 @@
-import TechnoItems from "../components/TechnoItems";
+import TechnoItems from "../components/TechnoItem";
 
 export default function TechnoList(props) {
   const { technos } = props;

@@ -1,7 +1,7 @@
 export default function TechnoItems(props) {
   const { techno } = props;
   return (
-    <div key={techno.technoid}>
+    <div key={techno.technoid} className="card">
       <h2>{techno.technoname} </h2>
       <h3>Category</h3>
       <p>{techno.technocategory} </p>
