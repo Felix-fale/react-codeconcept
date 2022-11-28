@@ -59,7 +59,7 @@ export default function TechnoAdd(props) {
             value={techno.technocategory}
             onChange={(evt) => handleChange(evt)}
           >
-            <option value="">Select a category 1h:55m</option>
+            <option value="">Select a category 2h:14m</option>
             <option value="front">Front</option>
             <option value="back">Back</option>
             <option value="fullstack">Fullstack</option>
