@@ -7,17 +7,23 @@ import Menu from "./components/Menu";
 import "./css/app.css";
 import TechnoAdd from "./pages/TechnoAdd";
 import TechnoList from "./pages/TechnoList";
+import { useLocalStorage } from "./hooks/useLocalStorage";
 
 function App() {
   // nos hooks
   const [technos, setTechnos] = useState([]);
+  const STORAGE_KEY = "technos";
+  const [storedTechnos, setStoredTechnos] = useLocalStorage(STORAGE_KEY, []);
+
   useEffect(() => {
     console.log("useEffect with []");
+    setTechnos(storedTechnos);
   }, []);
 
-  useEffect(()=> {
-    console.log('useEffect with [technos]');
-  }, [technos])
+  useEffect(() => {
+    console.log("useEffect with [technos]");
+    setStoredTechnos(technos);
+  }, [technos]);
 
   function handleAddTechno(techno) {
     console.log("handleAddTechno", techno);
